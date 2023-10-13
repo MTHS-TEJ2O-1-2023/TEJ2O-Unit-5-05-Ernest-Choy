@@ -15,8 +15,8 @@ neoPixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
 neoPixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
 neoPixelStrip.show()
 
-//traffic light sequence
-input.onButtonPressed(Button.A, function() {
+// traffic light sequence
+input.onButtonPressed(Button.A, function () {
   neoPixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
   neoPixelStrip.show()
   pause(1000)
