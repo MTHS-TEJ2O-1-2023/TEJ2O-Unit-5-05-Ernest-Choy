@@ -7,31 +7,35 @@ This module is a Micro:bit MicroPython program
 from microbit import *
 import neopixel
 
-neoPixelStrip = neopixel.NeoPixel(pin16, 4)
+display.clear()
+display.show(Image.HAPPY)
 
 # cut all colors
-neoPixelStrip[0] = (0, 0, 0)
-neoPixelStrip[1] = (0, 0, 0)
-neoPixelStrip[2] = (0, 0, 0)
-neoPixelStrip.show()
+np = neopixel.NeoPixel(pin16, 4)
+np[0] = (255, 0, 0)
+np[1] = (0, 255, 0)
+np[2] = (0, 0, 255)
+np.show()
 
 # traffic light sequence
 if button_a.is_pressed():
-    neoPixelStrip[0] = (255, 0, 0)
-    neoPixelStrip.show()
+    np[0] = (255, 0, 0)
+    np.show()
     sleep(1000)
-    neoPixelStrip[0] = (0, 0, 0)
-    neoPixelStrip[1] = (255, 255, 0)
-    neoPixelStrip.show()
+
+    # show Yellow
+    np[0] = (0, 0, 0)
+    np[1] = (255, 255, 0)
+    np.show()
     sleep(1000)
-    neoPixelStrip[0] = (0, 0, 0)
-    neoPixelStrip[1] = (0, 0, 0)
-    neoPixelStrip[2] = (0, 255, 0)
-    neoPixelStrip.show()
+
+    # show green
+    np[1] = (0, 0, 0)
+    np[2] = (0, 255, 0)
+    np.show()
     sleep(1000)
+    # Clear Led
     display.show(Image.HAPPY)
     sleep(2000)
-    neoPixelStrip[0] = (0, 0, 0)
-    neoPixelStrip[1] = (0, 0, 0)
-    neoPixelStrip[2] = (0, 0, 0)
-    neoPixelStrip.show()
+    np[2] = (0, 0, 0)
+    np.show()
